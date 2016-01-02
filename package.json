@@ -1,0 +1,32 @@
+{
+  "name": "movies-list-on-redux",
+  "version": "1.0.0",
+  "description": "Frontend only movie list app",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "react": "^0.14.5",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.3.26",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "react-hot-loader": "^1.3.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server --devtool eval --progress --colors --hot --inline --content-base build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/omm2/movies-list-on-redux.git"
+  },
+  "author": "anna pavlova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/omm2/movies-list-on-redux/issues"
+  },
+  "homepage": "https://github.com/omm2/movies-list-on-redux#readme"
+}
