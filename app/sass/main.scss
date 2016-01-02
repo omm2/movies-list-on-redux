@@ -1,0 +1,126 @@
+$backgroundMain: #FFF;
+$colorBody: #AAA;
+$backgroundBody: #FAFA00;
+$colorHeader: #F0E9EB;
+$colorSearch: #F0E9EB;
+$backgroundLi2n: #E3E8E8;
+$backgroundLi: #1B1BE0;
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  //background-color: $backgroundBody;
+  color: $colorBody;
+  margin: 0;
+}
+
+#main {
+}
+
+header {
+  background-color: $colorHeader;
+}
+
+header{
+  .select2-container{
+    width: 50%;
+    margin: auto;
+    display: block;
+    padding: 10px 0;
+  }
+  .select2-default{
+    color: $colorHeader !important;
+  }
+  .select2-container .select2-choice{
+    height: 3em;
+    border-radius: 0px;
+    background-image: none;
+    border: 1px solid $colorSearch;
+    //font-style: italic;
+    font-size: 1em;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: $colorHeader;
+  }
+  .select2-container .select2-choice > .select2-chosen{
+    padding: 0.5em 3em;
+  }
+  .select2-container .select2-choice .select2-arrow{
+    display: none;
+  }
+  .select2-dropdown-open .select2-choice {
+    background-color: $backgroundMain;
+  }
+}
+
+.header-drop {
+  &.select2-drop {
+    margin-top: -58px;
+    color: $colorSearch;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 0px;
+  }
+  &.select2-drop-active {
+    border: 1px solid $colorSearch;
+  }
+  .select2-search input {
+    min-height: 3em;
+    padding: 4px 20px 4px 5px;
+    margin: 10px 0;
+    border: 1px solid $colorSearch;
+    background: $backgroundMain;
+  }
+  .select2-results .select2-no-results, .select2-results .select2-searching, .select2-results .select2-selection-limit {
+    background: $backgroundMain;
+  }
+}
+
+.clear-left {
+  clear: left;
+}
+
+ul.list {
+  background-color: $backgroundMain;
+  margin:1em auto;
+  max-width:1100px;
+
+  li:nth-child(2n) {
+      //background: $backgroundLi2n;
+  }
+
+  li:nth-child(2n+1) {
+      //background: $backgroundLi2n;
+  }
+
+  li {
+    div.img-cont{
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+      img{
+        max-height:400px;
+        max-width:300px;
+      }
+    }
+
+  }
+}
+
+@media screen and (min-width:600px) {
+
+  li.item {
+    display: inline-block;
+    vertical-align: top;
+    line-height: 100px;
+    width: 25%;
+    //height:325px;
+  }
+}
+@media screen and (max-width:599px) {
+}

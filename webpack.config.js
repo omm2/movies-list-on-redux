@@ -10,7 +10,7 @@ module.exports = {
     devtool: process.env.WEBPACK_DEVTOOL || 'source-map',
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'bundle.js',
+        filename: 'bundle.js'
     },
     module: {
         loaders: [
@@ -18,7 +18,19 @@ module.exports = {
                 test: /.jsx?$/,
                 loaders: ['react-hot', 'babel'],
                 exclude: /node_modules/
+            },
+            {
+              test: /\.scss$/,
+              loader: 'style!css!sass'
+            },
+            {
+              test: /\.(png|jpg)$/,
+              loader: 'url?limit=25000'
+            },
+            {
+              test: /\.woff$/,
+              loader: 'url?limit=100000'
             }
         ]
-    },
+    }
 };
