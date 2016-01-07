@@ -1,34 +1,39 @@
 import React from 'react';
 import  ReactDOM from 'react-dom';
 
-import { createStore, combineReducers } from 'redux'
+import { applyMiddleware, compose, createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import { Router, Route } from 'react-router'
-import { createHistory } from 'history'
+//import { createHistory } from 'history'
+import createHistory from 'history/lib/createHashHistory'
 import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
 import reducers from './reducers'
 
 import './sass/main.scss';
 
-import Hello from './components/component.jsx';
+import App from './components/app.jsx';
+import MovieList from './components/movie_list.jsx';
+
+const history = createHistory()
 
 const reducer = combineReducers(Object.assign({}, reducers, {
   routing: routeReducer
 }))
-const store = createStore(reducer)
-const history = createHistory()
 
+const finalCreateStore = compose(
+  //applyMiddleware(middleware)
+)(createStore);
+const store = finalCreateStore(reducer);
 syncReduxAndRouter(history, store)
-
 
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={Hello}>
-        <Route path="foo" component={Hello}/>
-        <Route path="bar" component={Hello}/>
+      <Route path="/" component={App}>
+        <Route path="movies/:ids" component={MovieList} />
       </Route>
     </Router>
   </Provider>,
   document.getElementById('app')
 )
+
