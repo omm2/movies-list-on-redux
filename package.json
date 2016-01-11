@@ -4,6 +4,7 @@
   "description": "Frontend only movie list app",
   "main": "webpack.config.js",
   "dependencies": {
+    "babel-polyfill": "^6.3.14",
     "history": "^1.17.0",
     "react": "^0.14.5",
     "react-dom": "^0.14.5",

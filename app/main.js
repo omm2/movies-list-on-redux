@@ -1,9 +1,13 @@
+import 'babel-polyfill'
+
 import React from 'react';
 import  ReactDOM from 'react-dom';
 
 import { applyMiddleware, compose, createStore, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import { Router, Route } from 'react-router'
+import thunkMiddleware from 'redux-thunk'
+import createLogger from 'redux-logger'
 //import { createHistory } from 'history'
 import createHistory from 'history/lib/createHashHistory'
 import { syncReduxAndRouter, routeReducer } from 'redux-simple-router'
@@ -20,9 +24,11 @@ const reducer = combineReducers(Object.assign({}, reducers, {
   routing: routeReducer
 }))
 
-const finalCreateStore = compose(
-  //applyMiddleware(middleware)
-)(createStore);
+const loggerMiddleware = createLogger()
+const finalCreateStore = compose(applyMiddleware(
+    thunkMiddleware,
+    loggerMiddleware
+))(createStore);
 const store = finalCreateStore(reducer);
 syncReduxAndRouter(history, store)
 
