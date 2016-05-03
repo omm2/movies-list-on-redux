@@ -9,7 +9,6 @@ function requestMovies() {
 }
 
 function receiveMovies(jsonArray) {
-  console.log(json)
   return {
     type: constants.FETCH_MOVIES_SUCCESS,
     payload: {
@@ -28,7 +27,6 @@ function fetchAPI(ids) {
             url = `https://api.themoviedb.org/3/movie/${id}?api_key=${key}`
             return fetch(url)
         })
-        console.log(movies)
         return Promise.all(movies)
             .then((responses) => {
                 return Promise.all(responses.map(response => response.json()))

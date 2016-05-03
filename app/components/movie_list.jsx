@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { PropTypes } from 'react'
+import Movie from './movie.jsx'
 
-export default class MovieList extends React.Component {
-  render() {
-    return (
-      <div>
-        <h2>Movie List</h2>
-      </div>
-    )
-  }
+const MovieList = ({ movies }) => {
+    if (movies.length) {
+        return (
+            <ul>
+                {movies.map(movie =>
+                    <Movie
+                        key={movie.id}
+                        {...movie}
+                    />
+                )}
+            </ul>
+        )
+    } else {
+        return (
+            <div>Fetching...</div>
+        )
+    }
 }
+
+MovieList.propTypes = {
+    movies: PropTypes.array.isRequired
+}
+
+export default MovieList

@@ -16,12 +16,12 @@ import reducers from './reducers'
 import './sass/main.scss';
 
 import App from './components/app.jsx';
-import MovieList from './components/movie_list.jsx';
+import MovieList from './containers/movie_list.jsx';
 
 const history = createHistory()
 
 const reducer = combineReducers(Object.assign({}, reducers, {
-  routing: routeReducer
+    routing: routeReducer
 }))
 
 const loggerMiddleware = createLogger()
@@ -32,6 +32,7 @@ const finalCreateStore = compose(applyMiddleware(
 const store = finalCreateStore(reducer);
 syncReduxAndRouter(history, store)
 
+//open URL like http://localhost:8080/#/movies/5,3,4
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>

@@ -1,8 +1,7 @@
-import { combineReducers } from 'redux'
 import list from './list'
 
-const rootReducer = combineReducers({
+const rootReducer = {
     movies: list
-})
+}
 
 export default rootReducer
