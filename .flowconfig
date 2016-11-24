@@ -3,4 +3,4 @@
 .*/node_modules/fbjs/.*
 
 [options]
-module.name_mapper='.*\(.scss\)' -> 'empty/object'
+module.name_mapper.extension='scss' -> 'empty/object'
