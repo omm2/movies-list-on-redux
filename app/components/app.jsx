@@ -2,10 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux'
 import actions from './../actions'
 
-export default class App extends React.Component {
+class App extends React.Component {
   componentDidMount() {
       const { dispatch, params } = this.props
-      dispatch(actions.fetchMovies(params.ids))
+      if (params.ids) {
+          dispatch(actions.fetchMovies(params.ids))
+      }
   }
   render() {
     return (
