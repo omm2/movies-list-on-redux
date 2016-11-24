@@ -33,10 +33,7 @@
     "build": "webpack",
     "dev": "webpack-dev-server --devtool eval --progress --colors --hot --inline --content-base build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/omm2/movies-list-on-redux.git"
-  },
+  "repository": "git+https://github.com/omm2/movies-list-on-redux.git",
   "author": "anna pavlova",
   "license": "ISC",
   "bugs": {
